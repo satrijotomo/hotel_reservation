@@ -3,8 +3,8 @@ package model;
 public class FreeRoom extends Room {
 
 
-    public FreeRoom(String roomNumber, Double price, RoomType enumeration) {
-        super(roomNumber, price, enumeration);
+    public FreeRoom(String roomNumber, Double price, RoomType enumeration, boolean booked) {
+        super(roomNumber, price, enumeration, booked);
         setPrice(0.0);
 
     }

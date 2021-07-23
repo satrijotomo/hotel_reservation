@@ -61,6 +61,7 @@ public class MainMenu {
                         System.out.println("Enter your last name");
                         String lastname = scannercust.nextLine();
                         HotelResource.createACustomer(email, firstname, lastname);
+                        MainMenu.rootmenu();
                     }
 
                     if (selection == 4) {

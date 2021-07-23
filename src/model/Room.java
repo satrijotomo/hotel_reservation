@@ -5,11 +5,13 @@ public class Room implements IRoom {
     private String roomNumber;
     private Double price;
     private RoomType enumeration;
+    private Boolean booked;
 
-    public Room(String roomNumber, Double price, RoomType enumeration) {
+    public Room(String roomNumber, Double price, RoomType enumeration, boolean booked) {
         this.roomNumber = roomNumber;
         this.price = price;
         this.enumeration = enumeration;
+        this.booked = booked;
     }
 
     public void setRoomNumber(String roomNumber) {
@@ -24,7 +26,6 @@ public class Room implements IRoom {
     public void setEnumeration(RoomType enumeration) {
         this.enumeration = enumeration;
     }
-
 
 
     @Override
@@ -44,12 +45,12 @@ public class Room implements IRoom {
 
     @Override
     public boolean isFree() {
-        return false;
+        return booked;
     }
 
     @Override
     public String toString(){
-        return "Room number: "+roomNumber+", Room Type: "+enumeration+", Room Price: "+price+", Free: "+isFree();
+        return "Room number: "+roomNumber+", Room Type: "+enumeration+", Room Price: "+price+", Available: "+ booked;
     }
 
 

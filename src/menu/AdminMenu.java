@@ -1,6 +1,7 @@
 package menu;
 
 import api.AdminResource;
+import model.Customer;
 import model.IRoom;
 import model.Room;
 import model.RoomType;
@@ -21,7 +22,12 @@ public class AdminMenu {
             int selectionadm = Integer.parseInt(scanneradm.nextLine());
 
             if (selectionadm ==1 ){
-                AdminResource.getAllCustomers();
+                Collection<Customer> allcusts = AdminResource.getAllCustomers();
+                for (Customer customer: allcusts
+                     ) {
+                    System.out.println(customer.toString()+"\n");
+                }
+
                 AdminMenu();
             }
 
@@ -29,10 +35,11 @@ public class AdminMenu {
                 Collection<IRoom> allrooms =  AdminResource.getAllRooms();
                 for (IRoom room: allrooms
                      ) {
-                    System.out.println("Room number: "+ room.getRoomNumber());
-                    System.out.println("Room price: "+ room.getRoomPrice());
-                    System.out.println("Room type: "+ room.getRoomType());
-                    System.out.println("Is room available? "+ room.isFree()+"\n");
+                    room.toString();
+                    //System.out.println("Room number: "+ room.getRoomNumber());
+                    //System.out.println("Room price: "+ room.getRoomPrice());
+                    //System.out.println("Room type: "+ room.getRoomType());
+                    //System.out.println("Is room available? "+ room.isFree()+"\n");
                 }
                 AdminMenu();
             }
@@ -53,7 +60,7 @@ public class AdminMenu {
                 RoomType roomtype = RoomType.valueOf(scannerroom.nextLine());
 
                 List<IRoom> rooms2add = new ArrayList<>();
-                IRoom newroom = new Room(roomNumber, price, roomtype);
+                IRoom newroom = new Room(roomNumber, price, roomtype, true);
                 rooms2add.add(newroom);
                 AdminResource.addRoom(rooms2add);
 
