@@ -14,26 +14,26 @@ import java.util.Map;
 
 
 public class AdminResource {
-    public Customer getCustomer(String email){
+    public static Customer getCustomer(String email){
         return CustomerService.getCustomer(email);
     }
 
-    public void addRoom(List<IRoom> rooms){
+    public static void addRoom(List<IRoom> rooms){
         for (IRoom room: rooms
              ) {
             ReservationService.addRoom(room);
         }
     }
 
-    public Collection<IRoom> getAllRooms(){
+    public static Collection<IRoom> getAllRooms(){
         return ReservationService.getAllRooms();
     }
 
-    public Collection<Customer> getAllCustomers(){
+    public static Collection<Customer> getAllCustomers(){
         return CustomerService.getAllCustomers();
     }
 
-    public void displayAllReservations(){
+    public static void displayAllReservations(){
         ReservationService.printAllReservation();
     }
 
