@@ -14,7 +14,7 @@ public class ReservationService {
 
     public static void addRoom(IRoom room) {
         rooms.put(room.getRoomNumber(), room);
-
+        System.out.println(room.getRoomNumber());
     }
 
     public static IRoom getARoom(String roomID) {
@@ -79,6 +79,7 @@ public class ReservationService {
     }
 
     public static Collection<IRoom> getAllRooms(){
+        System.out.println(rooms.values());
         return rooms.values();
     }
 

@@ -6,6 +6,7 @@ import model.Room;
 import model.RoomType;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,14 +22,24 @@ public class AdminMenu {
 
             if (selectionadm ==1 ){
                 AdminResource.getAllCustomers();
+                AdminMenu();
             }
 
             if (selectionadm ==2 ){
-                AdminResource.getAllRooms();
+                Collection<IRoom> allrooms =  AdminResource.getAllRooms();
+                for (IRoom room: allrooms
+                     ) {
+                    System.out.println("Room number: "+ room.getRoomNumber());
+                    System.out.println("Room price: "+ room.getRoomPrice());
+                    System.out.println("Room type: "+ room.getRoomType());
+                    System.out.println("Is room available? "+ room.isFree()+"\n");
+                }
+                AdminMenu();
             }
 
             if (selectionadm ==3 ){
                 AdminResource.displayAllReservations();
+                AdminMenu();
             }
 
             if (selectionadm ==4 ){
@@ -45,6 +56,8 @@ public class AdminMenu {
                 IRoom newroom = new Room(roomNumber, price, roomtype);
                 rooms2add.add(newroom);
                 AdminResource.addRoom(rooms2add);
+
+                AdminMenu();
             }
 
             if (selectionadm ==5 ){
