@@ -11,7 +11,7 @@ public class ReservationService {
     static Map<String, IRoom> rooms = new HashMap<String, IRoom>();
 
 
-    public void addRoom(IRoom room) {
+    public static void addRoom(IRoom room) {
         rooms.put(room.getRoomNumber(), room);
 
     }
@@ -72,9 +72,14 @@ public class ReservationService {
 
     }
 
-    public void printAllReservation () {
+    public static void printAllReservation () {
         System.out.println(reservations);
 
     }
+
+    public static Collection<IRoom> getAllRooms(){
+        return rooms.values();
+    }
+
 
 }
