@@ -9,6 +9,7 @@ public class ReservationService {
 
     static Collection<Reservation> reservations = new HashSet<>();
     static Map<String, IRoom> rooms = new HashMap<String, IRoom>();
+    //static Collection<IRoom> rooms = new ArrayList<>();
 
 
     public static void addRoom(IRoom room) {
