@@ -29,7 +29,7 @@ public class ReservationService {
 
     }
 
-    public Collection<IRoom> findARoom(Date checkInDate, Date checkOutDate) {
+    public static Collection<IRoom> findARoom(Date checkInDate, Date checkOutDate) {
         // ref: https://www.baeldung.com/java-between-dates
         Collection<IRoom> listOfRoom = new HashSet<IRoom>();
         List<Date> datesInRange = new ArrayList<>();

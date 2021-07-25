@@ -66,6 +66,7 @@ public class MainMenu {
 
                     if (selection == 4) {
                         AdminMenu.AdminMenu();
+                        continue;
                     }
 
                     if (selection == 5) {
